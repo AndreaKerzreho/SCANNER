@@ -2,6 +2,7 @@ class QRScanner {
     constructor() {
         this.ticketsData = {};
         this.scanner = null;
+        this.useBackCamera = true; // Préférence pour caméra arrière
         this.stats = {
             scanned: 0,
             valid: 0,
@@ -16,6 +17,10 @@ class QRScanner {
         await this.loadTicketsData();
         this.setupEventListeners();
         this.updateStats();
+        // Démarrer automatiquement le scanner avec la caméra arrière
+        setTimeout(() => {
+            this.startScanning();
+        }, 500);
     }
 
     async loadTicketsData() {
@@ -32,6 +37,7 @@ class QRScanner {
     setupEventListeners() {
         document.getElementById('start-scan').addEventListener('click', () => this.startScanning());
         document.getElementById('stop-scan').addEventListener('click', () => this.stopScanning());
+        document.getElementById('switch-camera').addEventListener('click', () => this.switchCamera());
         document.getElementById('verify-manual').addEventListener('click', () => this.verifyManualInput());
         
         // Validation en temps réel pour l'input manuel
@@ -40,15 +46,38 @@ class QRScanner {
                 document.getElementById('verify-manual').style.display = 'inline-block';
             }
         });
+
+        // Gérer l'orientation du téléphone pour optimiser l'affichage
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                if (this.scanner) {
+                    // Redimensionner le scanner après changement d'orientation
+                    this.scanner.clear();
+                    setTimeout(() => this.startScanning(), 500);
+                }
+            }, 500);
+        });
     }
 
     async startScanning() {
         try {
+            // Configuration avancée pour forcer la caméra arrière
             const config = { 
                 fps: 10, 
                 qrbox: { width: 250, height: 250 },
-                aspectRatio: 1.0
+                aspectRatio: 1.0,
+                // Configuration pour caméra arrière/avant
+                videoConstraints: {
+                    facingMode: this.useBackCamera ? "environment" : "user"
+                }
             };
+
+            // Ajouter un message de statut
+            const cameraType = this.useBackCamera ? "arrière" : "avant";
+            document.getElementById('qr-reader').innerHTML = `
+                <div class="loading"></div>
+                <p>Démarrage de la caméra ${cameraType}...</p>
+            `;
 
             this.scanner = new Html5QrcodeScanner("qr-reader", config, false);
             this.scanner.render(
@@ -58,9 +87,21 @@ class QRScanner {
 
             document.getElementById('start-scan').style.display = 'none';
             document.getElementById('stop-scan').style.display = 'inline-block';
+            document.getElementById('switch-camera').style.display = 'inline-block';
+            
         } catch (error) {
             console.error('Erreur lors du démarrage du scanner:', error);
             this.showError('Impossible de démarrer la caméra');
+            // Afficher le bouton de démarrage manuel en cas d'erreur
+            document.getElementById('start-scan').style.display = 'inline-block';
+        }
+    }
+
+    switchCamera() {
+        this.useBackCamera = !this.useBackCamera;
+        if (this.scanner) {
+            this.scanner.clear();
+            setTimeout(() => this.startScanning(), 300);
         }
     }
 
@@ -72,6 +113,7 @@ class QRScanner {
         
         document.getElementById('start-scan').style.display = 'inline-block';
         document.getElementById('stop-scan').style.display = 'none';
+        document.getElementById('switch-camera').style.display = 'none';
         document.getElementById('qr-reader').innerHTML = '<p>Scanner arrêté. Cliquez sur "Démarrer le scan" pour recommencer.</p>';
     }
 

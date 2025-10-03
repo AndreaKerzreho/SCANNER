@@ -12,9 +12,15 @@
         <h1>Scanner QR Code</h1>
         <div class="scanner-section">
             <div class="camera-section">
-                <div id="qr-reader" class="qr-reader"></div>
-                <button id="start-scan" class="btn btn-primary">Démarrer le scan</button>
-                <button id="stop-scan" class="btn btn-secondary" style="display: none;">Arrêter le scan</button>
+                <div id="qr-reader" class="qr-reader">
+                    <div class="loading"></div>
+                    <p>Chargement de la caméra...</p>
+                </div>
+                <div class="camera-controls">
+                    <button id="start-scan" class="btn btn-primary" style="display: none;">Démarrer le scan</button>
+                    <button id="stop-scan" class="btn btn-secondary" style="display: none;">Arrêter le scan</button>
+                    <button id="switch-camera" class="btn btn-secondary" style="display: none;">Changer de caméra</button>
+                </div>
             </div>
             
             <div class="manual-input">

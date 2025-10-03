@@ -43,6 +43,14 @@ h1 {
     text-align: center;
 }
 
+.camera-controls {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .qr-reader {
     width: 100%;
     max-width: 400px;
@@ -53,10 +61,19 @@ h1 {
     background: #f8f9fa;
     min-height: 300px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #666;
     font-size: 1.1rem;
+    position: relative;
+}
+
+.qr-reader video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px;
+    object-fit: cover;
 }
 
 .manual-input {
