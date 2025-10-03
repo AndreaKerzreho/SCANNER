@@ -1,0 +1,44 @@
+{
+  "9b85bda5-6fdb-41f9-9efa-c7aef5d11980": {
+    "ticket_id": "9b85bda5-6fdb-41f9-9efa-c7aef5d11980",
+    "event_name": "TROPICAL NIGHT HALLOWEEN",
+    "buyer_info": {
+      "nom": "Invité-215607",
+      "email": "",
+      "achat_le": "2025-10-03T21:56:07.576800"
+    },
+    "event_date": null,
+    "ticket_type": "Standard",
+    "price": "",
+    "additional_data": {
+      "type_billet": "Standard",
+      "prix": ""
+    },
+    "qr_content": "TICKET_V1:eyJkYXRhIjp7ImV2ZW50X25hbWUiOiJUUk9QSUNBTCBOSUdIVCBIQUxMT1dFRU4iLCJ0aWNrZXRfaWQiOiI5Yjg1YmRhNS02ZmRiLTQxZjktOWVmYS1jN2FlZjVkMTE5ODAiLCJnZW5lcmF0ZWRfYXQiOiIyMDI1LTEwLTAzVDIxOjU2OjA3LjU3NjgxNCIsImV2ZW50X2RhdGUiOm51bGwsImJ1eWVyX2luZm8iOnsibm9tIjoiSW52aXRcdTAwZTktMjE1NjA3IiwiZW1haWwiOiIiLCJhY2hhdF9sZSI6IjIwMjUtMTAtMDNUMjE6NTY6MDcuNTc2ODAwIn0sImFkZGl0aW9uYWxfZGF0YSI6eyJ0eXBlX2JpbGxldCI6IlN0YW5kYXJkIiwicHJpeCI6IiJ9fSwic2lnbmF0dXJlIjoiMTdjZTRiZjc4NTU1NDdiYTFjNjIxMTUzM2I3OGI2NDA3ZjFhZDM2M2U2OGQ2NDUyNzUyZmNjOGNlYzA5Yjc2MCIsInZlcnNpb24iOiIxLjAifQ==",
+    "filename": "ticket_TROPICAL NIGHT HALLOWEEN_Invité-215607_9b85bda5.png",
+    "filepath": "generated_tickets\\ticket_TROPICAL NIGHT HALLOWEEN_Invité-215607_9b85bda5.png",
+    "generated_at": "2025-10-03T21:56:07.837242",
+    "status": "active"
+  },
+  "0e0230ed-d6c9-4354-ad92-fe38e1076a94": {
+    "ticket_id": "0e0230ed-d6c9-4354-ad92-fe38e1076a94",
+    "event_name": "TROPICAL NIGHT HALLOWEEN",
+    "buyer_info": {
+      "nom": "Invité-215622",
+      "email": "",
+      "achat_le": "2025-10-03T21:56:22.963553"
+    },
+    "event_date": null,
+    "ticket_type": "Standard",
+    "price": "",
+    "additional_data": {
+      "type_billet": "Standard",
+      "prix": ""
+    },
+    "qr_content": "TICKET_V1:eyJkYXRhIjp7ImV2ZW50X25hbWUiOiJUUk9QSUNBTCBOSUdIVCBIQUxMT1dFRU4iLCJ0aWNrZXRfaWQiOiIwZTAyMzBlZC1kNmM5LTQzNTQtYWQ5Mi1mZTM4ZTEwNzZhOTQiLCJnZW5lcmF0ZWRfYXQiOiIyMDI1LTEwLTAzVDIxOjU2OjIyLjk2MzU2MiIsImV2ZW50X2RhdGUiOm51bGwsImJ1eWVyX2luZm8iOnsibm9tIjoiSW52aXRcdTAwZTktMjE1NjIyIiwiZW1haWwiOiIiLCJhY2hhdF9sZSI6IjIwMjUtMTAtMDNUMjE6NTY6MjIuOTYzNTUzIn0sImFkZGl0aW9uYWxfZGF0YSI6eyJ0eXBlX2JpbGxldCI6IlN0YW5kYXJkIiwicHJpeCI6IiJ9fSwic2lnbmF0dXJlIjoiNzU0MmI3MzU3OWEwOTZhMTMzMWY0YmFmNmRiZjI3ODY4ZGEyYmExNWQxYzZhZDBkZmU4YWY3NDMyYTZhMzdmOCIsInZlcnNpb24iOiIxLjAifQ==",
+    "filename": "ticket_TROPICAL NIGHT HALLOWEEN_Invité-215622_0e0230ed.png",
+    "filepath": "generated_tickets\\ticket_TROPICAL NIGHT HALLOWEEN_Invité-215622_0e0230ed.png",
+    "generated_at": "2025-10-03T21:56:23.018906",
+    "status": "active"
+  }
+}

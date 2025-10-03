@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner QR Code - Vérification de Tickets</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Scanner QR Code</h1>
+        <div class="scanner-section">
+            <div class="camera-section">
+                <div id="qr-reader" class="qr-reader"></div>
+                <button id="start-scan" class="btn btn-primary">Démarrer le scan</button>
+                <button id="stop-scan" class="btn btn-secondary" style="display: none;">Arrêter le scan</button>
+            </div>
+            
+            <div class="manual-input">
+                <h3>Ou saisir manuellement le code QR :</h3>
+                <input type="text" id="manual-qr" placeholder="Collez le contenu du QR code ici">
+                <button id="verify-manual" class="btn btn-primary">Vérifier</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="result-section" style="display: none;">
+            <h2>Résultat de la vérification</h2>
+            <div id="result-content"></div>
+        </div>
+
+        <div class="stats-section">
+            <h3>Statistiques</h3>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Tickets scannés :</span>
+                    <span id="scanned-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tickets valides :</span>
+                    <span id="valid-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tickets invalides :</span>
+                    <span id="invalid-count">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h3>Historique des scans</h3>
+            <div id="scan-history"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
