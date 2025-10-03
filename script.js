@@ -38,14 +38,6 @@ class QRScanner {
         document.getElementById('start-scan').addEventListener('click', () => this.startScanning());
         document.getElementById('stop-scan').addEventListener('click', () => this.stopScanning());
         document.getElementById('switch-camera').addEventListener('click', () => this.switchCamera());
-        document.getElementById('verify-manual').addEventListener('click', () => this.verifyManualInput());
-        
-        // Validation en temps réel pour l'input manuel
-        document.getElementById('manual-qr').addEventListener('input', (e) => {
-            if (e.target.value.length > 0) {
-                document.getElementById('verify-manual').style.display = 'inline-block';
-            }
-        });
 
         // Gérer l'orientation du téléphone pour optimiser l'affichage
         window.addEventListener('orientationchange', () => {
@@ -61,7 +53,7 @@ class QRScanner {
 
     async startScanning() {
         try {
-            // Configuration avancée pour forcer la caméra arrière
+            // Configuration avancée pour forcer la caméra arrière uniquement
             const config = { 
                 fps: 10, 
                 qrbox: { width: 250, height: 250 },
@@ -69,7 +61,10 @@ class QRScanner {
                 // Configuration pour caméra arrière/avant
                 videoConstraints: {
                     facingMode: this.useBackCamera ? "environment" : "user"
-                }
+                },
+                // Désactiver le scan de fichiers - utiliser seulement la caméra
+                rememberLastUsedCamera: true,
+                showTorchButtonIfSupported: true
             };
 
             // Ajouter un message de statut
@@ -125,14 +120,6 @@ class QRScanner {
 
     onScanFailure(error) {
         // Les erreurs de scan sont normales, on ne les affiche pas
-    }
-
-    verifyManualInput() {
-        const manualInput = document.getElementById('manual-qr').value.trim();
-        if (manualInput) {
-            this.verifyTicket(manualInput);
-            document.getElementById('manual-qr').value = '';
-        }
     }
 
     verifyTicket(qrContent) {
